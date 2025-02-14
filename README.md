@@ -1,3 +1,3 @@
 # responsive-header-sample
 
-[Edit in StackBlitz next generation editor ⚡️](https://stackblitz.com/~/github.com/koldovsky/responsive-header-sample)
+https://koldovsky.github.io/responsive-header-sample/
