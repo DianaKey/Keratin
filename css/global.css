@@ -6,17 +6,6 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: Inter, system-ui, sans-serif;
-  color: var(--color-text);
-  background-color: var(--color-background);
-  line-height: 1.5;
-}
-
-body.no-scroll {
-  overflow: hidden;
-}
-
 :root {
   /* Colors - Enhanced contrast */
   --color-primary: #4338ca;
@@ -40,6 +29,17 @@ body.no-scroll {
   --container-max-width: 1200px;
   --border-radius: 8px;
   --transition-speed: 0.3s;
+}
+
+body {
+  font-family: Inter, system-ui, sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  line-height: 1.5;
+}
+
+body.no-scroll {
+  overflow: hidden;
 }
 
 /* Keyframes */
