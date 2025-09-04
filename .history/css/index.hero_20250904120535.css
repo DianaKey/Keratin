@@ -1,0 +1,17 @@
+/* базові анімації залишаються як були */
+.hero__cta {
+  display: inline-block;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed), background var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed);
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.6s forwards;
+}
+
+/* outline як на макеті */
+.hero__cta--outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  padding: 1

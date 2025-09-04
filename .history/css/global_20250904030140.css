@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Colors - Enhanced contrast */
+  --color-primary: #350920;
+  --color-primary-hover: #2c031d;
+  --color-secondary: #331137;
+  --color-accent: #979797;
+  --color-text: #000000;
+  --color-text-light: #64748b;
+  --color-background: #ede9e1;
+  --color-border: #e2e8f0;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Fonts */
+  --font-family: "Montserrat", sans-serif;
+  /* Other */
+  --header-height: 5rem;
+  --container-max-width: 1200px;
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+}
+html {
+  font-family: var(--font-family);
+  font-weight: 200;            /* базова товщина */
+  font-optical-sizing: auto;   /* для варіативних шрифтів */
+}
+/* щоб форми теж успадковували */
+button, input, select, textarea {
+  font: inherit;
+}
+
+h1, h2 { 
+  font-weight: 200; }
+
+body {
+  color: var(--color-text);
+  background-color: var(--color-background);
+  line-height: 1.5;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(-50%) translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-2%) rotate(180deg);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0) rotate(360deg);
+  }
+}

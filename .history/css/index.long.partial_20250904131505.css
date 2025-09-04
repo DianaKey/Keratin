@@ -1,0 +1,158 @@
+.about-title {
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+  animation: fadeInUp 1s ease-out;
+}
+
+.carousel-container {
+  width: 100%;
+  max-width: 1200px;
+  height: 450px;
+  margin: 0 auto;
+  position: relative;
+  perspective: 1000px;
+}
+
+.carousel-track {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card {
+  position: absolute;
+  width: 280px;
+  height: 380px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(20%);
+  transition: all 0.5s ease;
+}
+
+.card.center {
+  z-index: 10;
+  transform: scale(1.1) translateZ(0);
+}
+
+.card.center img {
+  filter: none;
+}
+
+/* бокові картки з легким затемненням */
+.card.left-1,
+.card.right-1 {
+  opacity: 0.9;
+  filter: grayscale(100%);
+}
+
+.card.left-2,
+.card.right-2 {
+  opacity: 0.6;
+  filter: grayscale(100%);
+}
+
+.card.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* інформація */
+.member-info {
+  text-align: center;
+  margin-top: var(--spacing-lg);
+  transition: all 0.5s ease-out;
+}
+
+.member-name {
+  color: var(--color-primary);
+  font-size: 2rem;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.member-role {
+  color: #110f0f;
+  font-size: 1.25rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* точки */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: var(--spacing-lg);
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: var(--color-primary);
+  transform: scale(1.2);
+}
+
+/* кнопки-навігації у стилі «Запис» */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  font-size: 1.5rem;
+  transition: background 0.3s, color 0.3s, transform 0.3s;
+}
+
+.nav-arrow:hover {
+  background: #fff;
+  color: #000;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.nav-arrow.left { left: 20px; }
+.nav-arrow.right { right: 20px; }
+
+/* адаптив */
+@media (max-width: 768px) {
+  .card { width: 200px; height: 280px; }
+  .member-name { font-size: 1.5rem; }
+  .member-role { font-size: 1rem; }
+}

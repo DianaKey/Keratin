@@ -1,0 +1,91 @@
+/* Базовий хедер з фото-фоном */
+.header-hero {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: calc(var(--header-height) + var(--spacing-xl)) var(--spacing-sm);
+  color: #fff;
+  background: #000 center / cover no-repeat;
+  /* за замовчуванням (постав свій шлях або використай модифікатор нижче) */
+  background-image: url("../images/banner.");
+  background-attachment: fixed;
+  overflow: hidden;
+
+
+/* затемнення */
+.header-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* Контейнер з тим самим стилем, що у фіолетового hero */
+.header-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: var(--container-max-width);
+  text-align: center;
+  padding: var(--spacing-xl);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(10px);
+}
+
+/* ——— повторюємо твою типографіку й анімації ——— */
+.hero__spirit {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: clamp(0.5rem, 1.6vw, 1.2rem);
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.hero__title {
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  margin: 0 0 var(--spacing-sm);
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 4px rgba(0,0,0,.2);
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero__subtitle,
+.hero__lead,
+.hero__cta { opacity: 0; animation: fadeInUp 1s ease-out forwards; }
+.hero__subtitle { animation-delay: .3s; font-size: clamp(2rem, 2vw, 1.5rem); margin-bottom: var(--spacing-lg); }
+.hero__lead     { animation-delay: .4s; font-size: clamp(0.7rem, 2vw, 1.5rem); margin-bottom: var(--spacing-lg); }
+
+.hero__cta {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  text-decoration: none;
+  background: #fff;
+  color: var(--color-primary);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed), background var(--transition-speed), color var(--transition-speed);
+  box-shadow: 0 4px 6px rgba(0,0,0,.1);
+  margin: 0 var(--spacing-sm);
+}
+.hero__cta:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,.15); background: var(--color-background); }
+
+.hero__cta--outline {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.7);
+}
+.hero__cta--outline:hover {
+  background: #fff; color: #000;
+}
+
+/* Анімація */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Мобільні дрібниці */
+@media (max-width: 640px) {
+  .header-hero { background-attachment: scroll; } /* фіксовані фони лагують на iOS */
+  .hero__actions { display: grid; gap: var(--spacing-sm); }
+}

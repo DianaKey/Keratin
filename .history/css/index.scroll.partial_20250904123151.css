@@ -1,0 +1,78 @@
+:root {
+  --overlay: rgba(0, 0, 0, 0.5);
+}
+
+body {
+  margin: 0;
+  color: #fff;
+}
+
+.hero-section {
+  position: relative;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* фіксований фон */
+}
+
+.hero-section--form-1 {
+  background-image: url("../images/scroll/scroll-01.jpeg");
+}
+
+.hero-section--form-2 {
+  background-image: url("../images/scroll/scroll-02.jpeg");
+}
+
+.hero-section--form-3 {
+  background-image: url("../images/scroll/scroll-03.jpeg");
+}
+
+
+.hero-section__overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--overlay);
+}
+
+.hero-section__content {
+  position: relative;
+  z-index: 1;
+  text-align: left;
+  max-width: 560px;
+  padding: 24px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(2px);
+}
+
+.hero__cta {
+  display: inline-flex;              /* флекси */
+  align-items: center;               /* центрування по вертикалі */
+  justify-content: center;           /* центрування по горизонталі */
+  min-width: 280px;                  /* широка кнопка */
+  min-height: 60px;                  /* висока кнопка */
+  padding: 12px 32px;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  text-align: center;                /* для багаторядкового тексту */
+  background: transparent;
+  transition: background 0.3s, color 0.3s, transform 0.15s;
+}
+
+/* ефект при наведенні */
+.hero__cta:hover {
+  background: #fff;
+  color: #000;
+  transform: translateY(-2px);
+}
+
+/* ефект при натисканні */
+.hero__cta:active {
+  transform: translateY(0);
+}

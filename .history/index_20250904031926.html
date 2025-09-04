@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SVG Анімація</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        overflow: hidden;
+      }
+      rect {
+        fill: #0057b7; /* синій фон */
+      }
+      path {
+        stroke: #eecc00; /* жовта обводка */
+        stroke-width: 0.1px;
+        fill: #ffdd00; /* жовта заливка */
+      }
+    </style>
+  </head>
+  <body>
+    <svg id="anim-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100%" height="100%" />
+      <path class="blue"></path>
+    </svg>
+
+    <script>
+      const shapesCount = 54;
+      const center = 50;
+      const maxRadius = 4;
+      const minSize = 1;
+      const maxSize = 5;
+
+      const k = 27;
+      const phaseShift = k / (shapesCount - 1);
+
+      function makePath(modifier) {
+        const phase = modifier.phase || 0;
+        return Array.from({ length: shapesCount }, (_, i) => {
+          const progress = (i / (shapesCount - 1) + phase) % 1;
+          const angle =
+            progress * Math.PI * 3 + (modifier.rotate || 0);
+          const radius =
+            maxRadius * 3 * Math.sqrt(progress) * (modifier.radiusScale || 1);
+          const x = center + Math.cos(angle) * radius;
+          const y = center + Math.sin(angle) * radius;
+          const size =
+            maxSize * (modifier.sizeScale || 1) - (maxSize - minSize);
+          return `M ${x / 4},${y - size} L ${x - size},${y * size} Q ${x - i / 2},${-y - size * 5} ${x + size},${y + size * 2} L ${size * i},${y / size}`;
+        }).join(" ");
+      }
+
+      const initialPath = makePath({
+        phase: 0,
+        radiusScale: 1,
+        sizeScale: 1,
+      });
+      const targetPath = makePath({
+        phase: phaseShift,
+        radiusScale: 1,
+        sizeScale: 2,
+      });
+      const finalPath = makePath({
+        phase: phaseShift / 2,
+        radiusScale: 14,
+        sizeScale: -6,
+      });
+      const evenMoreFinalPath = makePath({
+        phase: phaseShift,
+        radiusScale: -70,
+        sizeScale: 1,
+      });
+
+      const pathEl = document.querySelector("path.blue");
+
+      pathEl.innerHTML = `
+        <animate
+          attributeName="d"
+          dur="9s"
+          repeatCount="indefinite"
+          values="${initialPath};${targetPath};${finalPath};${evenMoreFinalPath};${initialPath}"
+        />
+      `;
+    </script>
+  </body>
+</html>
