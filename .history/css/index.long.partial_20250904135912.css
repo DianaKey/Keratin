@@ -111,7 +111,7 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: rgba(48, 22, 22, 0.25);
+  background: rgba(54, 44, 44, 0.25);
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -156,4 +156,6 @@
   .member-name { font-size: 1.5rem; }
   .member-role { font-size: 1rem; }
 }
-.
+.carousel-section {
+  mar
+}
